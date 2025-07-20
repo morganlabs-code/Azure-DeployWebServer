@@ -246,7 +246,7 @@
     },
     {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "[concat(variables('vm1Name'), '/installGitNet')]",
+  "name": "[concat(parameters('vm1Name'), '/installGitNet')]",
   "apiVersion": "2021-03-01",
   "location": "[resourceGroup().location]",
   "dependsOn": [
