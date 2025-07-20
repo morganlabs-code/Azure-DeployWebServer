@@ -242,10 +242,7 @@
             }
           ]
         }
-      },
-      "dependsOn": [
-        "[resourceId('Microsoft.Network/networkInterfaces', variables('vm1NicName'))]"
-      ]
+      }
     },
     {
   "type": "Microsoft.Compute/virtualMachines/extensions",
