@@ -245,47 +245,27 @@
       ]
     },
     {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2021-07-01",
-      "name": "[concat(parameters('vm1Name'), '/GitNetInstall')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
+  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "name": "[concat(variables('vmName'), '/installGitNet')]",
+  "apiVersion": "2021-03-01",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))]"
+  ],
+  "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "2.1",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/morganlabs-code/Azure-DeployWebServer/main/GitNetInstall.ps"
       ],
-      "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.10",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "fileUris": [
-            "https://raw.githubusercontent.com/morganlabs-code/Azure-DeployWebServer/main/GitNetInstall.ps"
-          ]
-        },
-        "protectedSettings": {
-          "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File GitNetInstall.ps"
-        }
-      }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "apiVersion": "2021-03-01",
-      "name": "[concat(parameters('vm1Name'), '/installIIS')]",
-      "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.Compute",
-        "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "commandToExecute": "powershell -ExecutionPolicy Unrestricted -Command \"Install-WindowsFeature -name Web-Server -IncludeManagementTools\""
-        }
-      }
-    },
-
+      "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File GitNetInstall.ps"
+    }
+  }
+}
+,
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
