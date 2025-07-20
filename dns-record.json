@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "dnsZoneName": {
+      "type": "string"
+    },
+    "recordName": {
+      "type": "string"
+    },
+    "ipv4Address": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Network/dnsZones/A",
+      "apiVersion": "2018-05-01",
+      "name": "[format('{0}/{1}', parameters('dnsZoneName'), parameters('recordName'))]",
+      "properties": {
+        "TTL": 3600,
+        "ARecords": [
+          {
+            "ipv4Address": "[parameters('ipv4Address')]"
+          }
+        ]
+      }
+    }
+  ]
+}
