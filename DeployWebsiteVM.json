@@ -25,7 +25,6 @@
     },
     "vmAdminPassword": {
       "type": "securestring",
-      "defaultValue": "Morg@nMorg@n",
       "metadata": {
         "description": "Enter the password for accessing your VMs."
       }
