@@ -56,4 +56,4 @@ function Install-DotNet {
 Install-Git
 Install-DotNet
 
-Write-Host "`n[✓] Git and .NET SDK installation complete."
+Write-Host "`Git and .NET SDK installation complete."
