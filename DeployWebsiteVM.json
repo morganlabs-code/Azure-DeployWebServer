@@ -275,9 +275,7 @@
   "type": "Microsoft.Network/dnsZones/A",
   "apiVersion": "2018-05-01",
   "name": "morganlabs.site/@",
-  "dependsOn": [
-    "[resourceId('Microsoft.Network/dnsZones', 'morganlabs.site')]"
-  ],
+ 
   "properties": {
     "TTL": 3600,
     "ARecords": [
