@@ -244,6 +244,54 @@
         }
       }
     },
+    {  "type": "Microsoft.DevTestLab/schedules",
+  "apiVersion": "2018-09-15",
+  "name": "[concat(parameters('vm1Name'), '-autoShutdown')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
+  ],
+  "properties": {
+    "status": "Enabled",
+    "taskType": "ComputeVmShutdownTask",
+    "weeklyRecurrence": {
+      "time": "2300",
+      "timeZoneId": "Central Standard Time",
+      "daysOfWeek": [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+      ]
+    },
+    "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
+  }
+},
+{
+  "type": "Microsoft.DevTestLab/schedules",
+  "apiVersion": "2018-09-15",
+  "name": "[concat(parameters('vm1Name'), '-autoShutdown-weekend')]",
+  "location": "[parameters('location')]",
+  "dependsOn": [
+    "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
+  ],
+  "properties": {
+    "status": "Enabled",
+    "taskType": "ComputeVmShutdownTask",
+    "weeklyRecurrence": {
+      "time": "2359",
+      "timeZoneId": "Central Standard Time",
+      "daysOfWeek": [
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ]
+    },
+    "targetResourceId": "[resourceId('Microsoft.Compute/virtualMachines', parameters('vm1Name'))]"
+  }
+}
+,
     {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "[concat(parameters('vm1Name'), '/installGitNet')]",
