@@ -211,7 +211,7 @@
       "name": "[parameters('vm1Name')]",
       "location": "[parameters('location')]",
       "dependsOn": [
-    "[resourceId('Microsoft.Network/networkInterfaces', 'web1-vm-nic1')]"
+    "[resourceId('Microsoft.Network/networkInterfaces', 'web1-vm-nic1')]"]
       ,
       "properties": {
         "hardwareProfile": {
