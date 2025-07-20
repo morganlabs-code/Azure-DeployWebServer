@@ -304,7 +304,7 @@
           "dnszoneName": {
             "value": "[parameters('dnsZoneName')]"
           },
-          "dnsrecordName": {
+          "recordName": {
             "value": "[parameters('dnsRecordName')]"
           },
           "ipv4Address": {
