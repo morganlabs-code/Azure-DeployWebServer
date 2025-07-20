@@ -304,8 +304,8 @@
           "dnszoneName": {
             "value": "[parameters('dnsZoneName')]"
           },
-          "recordName": {
-            "value": "[parameters('dnsRecordName')]"
+          "dnsrecordName": {
+            "value": "[parameters('recordName')]"
           },
           "ipv4Address": {
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('vm1IpName'))).ipAddress]"
