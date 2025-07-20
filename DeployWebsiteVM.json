@@ -259,9 +259,9 @@
     "autoUpgradeMinorVersion": true,
     "settings": {
       "fileUris": [
-        "https://raw.githubusercontent.com/morganlabs-code/Azure-DeployWebServer/main/GitNetInstall.ps"
+        "https://raw.githubusercontent.com/morganlabs-code/Azure-DeployWebServer/main/GitNetInstall.ps1"
       ],
-      "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File GitNetInstall.ps"
+      "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File GitNetInstall.ps1"
     }
   }
 }
