@@ -210,6 +210,9 @@
       "apiVersion": "2020-12-01",
       "name": "[parameters('vm1Name')]",
       "location": "[parameters('location')]",
+      "dependsOn": [
+    "[resourceId('Microsoft.Network/networkInterfaces', 'web1-vm-nic1')]"
+      ,
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
