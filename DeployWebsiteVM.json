@@ -301,11 +301,11 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "dnszoneName": {
+          "dnsZoneName": {
             "value": "[parameters('dnsZoneName')]"
           },
-          "dnsrecordName": {
-            "value": "[parameters('recordName')]"
+          "recordName": {
+            "value": "[parameters('dnsRecordName')]"
           },
           "ipv4Address": {
             "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('vm1IpName'))).ipAddress]"
